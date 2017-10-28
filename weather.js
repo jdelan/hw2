@@ -30,12 +30,12 @@ let updateWeather = function(dataFromService) {
   console.debug(dataFromService)
   city_name = dataFromService.name;
   temp = dataFromService.main.temp;
+  icon = dataFromService.weather[0].icon;
   let location = document.getElementById("location");
   location.innerHTML = city_name;
   let weather = document.getElementById("temp_reading");
   weather.innerHTML = "It is " + temp + " degrees outside.";
-  let icon = document.getElementById("weather_icon");
-  weather.innerHTML = "It is " + temp + " degrees outside.";
+  document.getElementById("weather_icon").src="http://openweathermap.org/img/w/"+ icon +".png";
 }
 
 let weatherLink = document.getElementById("get_forecast")
